@@ -7,9 +7,12 @@ export function loadAuthorSuccess(authors) {
 
 export function loadAuthors() {
     return function (dispatch) {
-        return authorApi.getAuthors().then(authors => {
+        return authorApi
+            .getAuthors()
+            .then(authors => {
             dispatch(loadAuthorSuccess(authors));
-        }).catch(error => {
+        })
+            .catch(error => {
             throw error;
         })
     }
